@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+   <head>
+      <title>Blog do Fernando</title>
+
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+   </head>
+
+   <body>
+      <div style="background:gold; margin-bottom:0px; text-align:center;" class="jumbotron jumbotron-fluid">
+         <h1>Meu Blog!</h1>
+      </div>
+
+      <nav class="navbar navbar-expand-sm navbar-dark " style="background:black;font-size:20px; margin-bottom:20px">
+         <ul class="navbar-nav">
+           {% for post in posts %}
+            <li class="nav-item">
+               <a class="nav-link" href="{% url 'post_completo' pk=post.pk %}">{{ post }}</a>
+            </li>
+            {% endfor %}
+         </ul>
+      </nav>
+
+      <div class="container">
+         <div  class="row">
+            <div class="col-sm" style="text-align:center;font-size:25">
+               {% block content %}
+               {% endblock %}
+            </div>
+         </div>
+      </div>
+
+   </body>
+</html>
